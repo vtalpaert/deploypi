@@ -1,0 +1,1 @@
+install from https://simplecv.readthedocs.io/en/latest/HOWTO-Install%20on%20RaspberryPi.html
