@@ -1,1 +1,3 @@
+
+# added by script
 @reboot ${HOME}/start-ap-managed-wifi.sh
