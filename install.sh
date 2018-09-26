@@ -1,7 +1,13 @@
 #!/bin/bash
 cd `dirname $0`
 
+
+sudo rpi-update
+
+
 ## install wlan + ap
+
+
 sudo cp 70-persistent-net.rules /etc/udev/rules.d/
 
 sudo apt-get install dnsmasq hostapd
@@ -31,3 +37,4 @@ cp start-ap-managed-wifi.sh ~/
 chmod u+x ~/start-ap-managed-wifi.sh
 
 echo "add '@reboot /home/pi/start-ap-managed-wifi.sh' to cron and reboot"
+echo "or to /etc/rc.local"
