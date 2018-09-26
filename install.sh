@@ -8,7 +8,7 @@ sudo rpi-update
 ## install wlan + ap
 
 
-sudo cp 70-persistent-net.rules /etc/udev/rules.d/
+sudo cp config/70-persistent-net.rules /etc/udev/rules.d/
 
 sudo apt-get install dnsmasq hostapd
 
@@ -22,18 +22,18 @@ domain-needed
 bogus-priv
 dhcp-range=192.168.10.50,192.168.10.150,12h" >> /etc/dnsmasq.conf
 
-sudo cp hostapd.conf /etc/hostapd/
+sudo cp config/hostapd.conf /etc/hostapd/
 
 sudo echo '
 DAEMON_CONF="/etc/hostapd/hostapd.conf"' >> /etc/default/hostapd
 
-sudo cp wpa_supplicant.conf /etc/wpa_supplicant/
+sudo cp config/wpa_supplicant.conf /etc/wpa_supplicant/
 
-sudo cp interfaces /etc/network/
+sudo cp config/interfaces /etc/network/
 
 sudo update-rc.d dhcpcd disable
 
-cp start-ap-managed-wifi.sh ~/
+cp config/start-ap-managed-wifi.sh ~/
 chmod u+x ~/start-ap-managed-wifi.sh
 
 echo "add '@reboot /home/pi/start-ap-managed-wifi.sh' to cron and reboot"
