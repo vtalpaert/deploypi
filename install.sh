@@ -21,7 +21,6 @@ sudo rpi-update
 
 ## install wlan + ap
 
-
 sudo cp config/70-persistent-net.rules /etc/udev/rules.d/
 sudo sed -i -e "s/wlan0_mac/$wlan0_mac/g" /etc/udev/rules.d/70-persistent-net.rules
 
@@ -55,5 +54,6 @@ sudo update-rc.d dhcpcd disable
 cp config/start-ap-managed-wifi.sh ~/
 chmod u+x ~/start-ap-managed-wifi.sh
 
-echo "add '@reboot /home/pi/start-ap-managed-wifi.sh' to cron and reboot"
-echo "or to /etc/rc.local"
+crontab -l | cat - config/crontab-fragment.txt > crontab.txt
+crontab crontab.txt
+rm crontab.txt
